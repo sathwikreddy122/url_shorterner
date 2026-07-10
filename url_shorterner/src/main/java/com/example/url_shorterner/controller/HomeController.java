@@ -1,5 +1,6 @@
 package com.example.url_shorterner.controller;
 
+import com.example.url_shorterner.dto.ShortUrlResponse;
 import com.example.url_shorterner.entity.ShortUrl;
 import com.example.url_shorterner.repository.ShortUrlRepository;
 import com.example.url_shorterner.service.ShortUrlService;
@@ -23,8 +24,8 @@ public class HomeController {
 
     @GetMapping()
     public String home(Model model){
-        List<ShortUrl> shortUrls = service.fetchPublicUrl();
-        System.out.println(shortUrls);
+        List<ShortUrlResponse> shortUrls = service.fetchPublicUrl();
+//        System.out.println(shortUrls);
         model.addAttribute("shortUrls", shortUrls);
         model.addAttribute("baseUrl", "http://localhost:8082/home");
         return "index";
